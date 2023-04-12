@@ -12,10 +12,10 @@
         android:theme="@style/Theme.Galeria"
         tools:targetApi="31" >
         <activity
-            android:name=".activity.NewItemActivity"
+            android:name=".activity.activity.NewItemActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.activity.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

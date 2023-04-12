@@ -1,4 +1,4 @@
-package barbosa.souza.eduardo.carlos.galeria.activity;
+package barbosa.souza.eduardo.carlos.galeria.activity.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,6 +56,12 @@ public class NewItemActivity extends AppCompatActivity {
                     Toast.makeText(NewItemActivity.this,"É necessário inserir uma descrição",Toast.LENGTH_LONG).show();
                     return;
                 }
+                Intent i = new Intent();
+                i.setData(photoSelected);
+                i.putExtra("title", title);
+                i.putExtra("description", description);
+                setResult(Activity.RESULT_OK, i);
+                finish();
             }
         });
 
