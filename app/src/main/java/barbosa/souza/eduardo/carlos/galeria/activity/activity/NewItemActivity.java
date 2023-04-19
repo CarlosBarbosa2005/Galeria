@@ -71,7 +71,7 @@ public class NewItemActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(resultCode, resultCode, data);
         if (requestCode == PHOTO_PICKER_REQUEST){
-            if (requestCode == Activity.RESULT_OK){
+            if (resultCode == Activity.RESULT_OK){
                 photoSelected = data.getData();
                 ImageView imvfotoPreview = findViewById(R.id.imvPhotoPreview);
                 imvfotoPreview.setImageURI(photoSelected);
