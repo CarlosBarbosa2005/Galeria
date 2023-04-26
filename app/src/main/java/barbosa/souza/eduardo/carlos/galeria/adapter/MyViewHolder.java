@@ -1,4 +1,4 @@
-package barbosa.souza.eduardo.carlos.galeria.activity.adapter;
+package barbosa.souza.eduardo.carlos.galeria.adapter;
 
 import android.view.View;
 

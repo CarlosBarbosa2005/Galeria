@@ -1,4 +1,4 @@
-package barbosa.souza.eduardo.carlos.galeria.activity.adapter;
+package barbosa.souza.eduardo.carlos.galeria.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import barbosa.souza.eduardo.carlos.galeria.R;
-import barbosa.souza.eduardo.carlos.galeria.activity.activity.MainActivity;
-import barbosa.souza.eduardo.carlos.galeria.activity.model.MyItem;
+import barbosa.souza.eduardo.carlos.galeria.activity.MainActivity;
+import barbosa.souza.eduardo.carlos.galeria.model.MyItem;
 
 public class MyAdapter extends RecyclerView.Adapter{
     MainActivity mainActivity;

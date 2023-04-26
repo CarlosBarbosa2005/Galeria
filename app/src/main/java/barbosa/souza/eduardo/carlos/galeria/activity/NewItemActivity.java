@@ -1,4 +1,4 @@
-package barbosa.souza.eduardo.carlos.galeria.activity.activity;
+package barbosa.souza.eduardo.carlos.galeria.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
