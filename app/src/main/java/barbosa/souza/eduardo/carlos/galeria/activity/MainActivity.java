@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +21,7 @@ import java.util.List;
 
 import barbosa.souza.eduardo.carlos.galeria.R;
 import barbosa.souza.eduardo.carlos.galeria.adapter.MyAdapter;
+import barbosa.souza.eduardo.carlos.galeria.model.MainActivityViewModel;
 import barbosa.souza.eduardo.carlos.galeria.model.MyItem;
 import barbosa.souza.eduardo.carlos.galeria.util.Util;
 
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         RecyclerView rvItens = findViewById(R.id.rvitens);
+        MainActivityViewModel vm = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        List<MyItem> itens = vm.getItens();
 
         myAdapter = new MyAdapter(this,itens);
         rvItens.setAdapter(myAdapter);
@@ -74,8 +78,13 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+                MainActivityViewModel vm = new ViewModelProvider(this).get(MainActivityViewModel.class);
+                List<MyItem> itens = vm.getItens();
+
                 itens.add(myItem);
                 myAdapter.notifyItemInserted(itens.size()-1);
+
+
             }
         }
     }

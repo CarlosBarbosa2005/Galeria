@@ -2,6 +2,7 @@ package barbosa.souza.eduardo.carlos.galeria.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import barbosa.souza.eduardo.carlos.galeria.R;
+import barbosa.souza.eduardo.carlos.galeria.model.NewItemAcitivityViewModel;
 
 public class NewItemActivity extends AppCompatActivity {
 
@@ -25,6 +27,14 @@ public class NewItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_item);
+
+        NewItemAcitivityViewModel vm = new ViewModelProvider(this).get(NewItemAcitivityViewModel.class);
+
+        Uri selectPhotoLocation = vm.getSelectPhotoLocation();
+        if (selectPhotoLocation != null){
+            ImageView imvfotoPreview = findViewById(R.id.imvPhotoPreview);
+            imvfotoPreview.setImageURI(selectPhotoLocation);
+        }
 
         ImageButton imbCI = findViewById(R.id.imbCI);
         imbCI.setOnClickListener(new View.OnClickListener() {
@@ -69,12 +79,15 @@ public class NewItemActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
-        super.onActivityResult(resultCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PHOTO_PICKER_REQUEST){
             if (resultCode == Activity.RESULT_OK){
-                photoSelected = data.getData();
+                Uri photoSelected = data.getData();
                 ImageView imvfotoPreview = findViewById(R.id.imvPhotoPreview);
                 imvfotoPreview.setImageURI(photoSelected);
+
+                NewItemAcitivityViewModel vm = new ViewModelProvider(this).get(NewItemAcitivityViewModel.class);
+                vm.setSelectPhotoLocation(photoSelected);
             }
         }
     }
