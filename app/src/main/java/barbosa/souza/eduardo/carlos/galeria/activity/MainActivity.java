@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 List<MyItem> itens = vm.getItens();
 
                 itens.add(myItem);
-                myAdapter.notifyItemInserted(itens.size()-1);
+                    myAdapter.notifyItemInserted(itens.size()-1);
 
 
             }
